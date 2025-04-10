@@ -1,0 +1,23 @@
+name = "youtube-automation-app"
+compatibility_date = "2023-12-01"
+
+[build]
+command = "npm run build"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "youtube_automation_db"
+database_id = "youtube-automation-db"
+
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "youtube-automation-storage"
+
+[env.production]
+workers_dev = false
+routes = [
+  { pattern = "youtube-automation.example.com", custom_domain = true }
+]
+
+[site]
+bucket = "./public"
